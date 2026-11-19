@@ -1,0 +1,77 @@
+.hero-banner {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-banner h1 {
+  color: var(--accent-gold);
+  font-size: 1.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-banner p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.home-toast {
+  background-color: rgba(129, 199, 132, 0.15);
+  border: 1px solid var(--success-color);
+  color: var(--success-color);
+  padding: 0.85rem 1.2rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.filtros-bar {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+  background-color: var(--bg-secondary);
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.filtro-grupo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.filtro-grupo label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.filtro-grupo select {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.filtro-grupo select:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.joyas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.sin-resultados {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+}

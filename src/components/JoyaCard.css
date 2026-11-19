@@ -1,0 +1,123 @@
+.joya-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.joya-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+}
+
+.joya-img-wrapper {
+  position: relative;
+  height: 220px;
+  background-color: var(--bg-elevated);
+}
+
+.joya-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.joya-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: rgba(18, 18, 18, 0.85);
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.joya-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.joya-categoria {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.joya-nombre {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin: 0.35rem 0 0.5rem;
+}
+
+.joya-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.joya-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.joya-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.joya-precio {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.joya-stock {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.btn-joya {
+  width: 100%;
+  background-color: var(--accent-gold);
+  color: #121212;
+  border: none;
+  border-radius: 4px;
+  padding: 0.65rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-joya:hover {
+  background-color: var(--accent-gold-hover);
+}
+
+.btn-joya.disabled {
+  background-color: var(--bg-elevated);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.joya-admin-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0.4rem;
+  background-color: var(--bg-elevated);
+  border-radius: 4px;
+}

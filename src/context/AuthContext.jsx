@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
-import { loginUsuario, obtenerSesionActual, cerrarSesion } from "../services/authService";
-import { inicializarDatos } from "../data/seedData";
+import {
+  loginUsuario,
+  registrarUsuario,
+  obtenerSesionActual,
+  cerrarSesion,
+} from "../services/authService";
+import { inicializarDatos } from "../data/Data";
 import { AuthContext } from "./useAuth";
 
 export function AuthProvider({ children }) {
@@ -26,17 +31,23 @@ export function AuthProvider({ children }) {
     return datosSesion;
   }
 
+  async function registrar(nombre, email, password) {
+    const datosSesion = await registrarUsuario(nombre, email, password);
+    setUsuario(datosSesion);
+    return datosSesion;
+  }
+
   function logout() {
     cerrarSesion();
     setUsuario(null);
   }
 
   if (cargando) {
-    return <div style={{ color: "#D4AF37", padding: "2rem" }}>Encendiendo la forja...</div>;
+    return <div className="loading-forja">Encendiendo la forja...</div>;
   }
 
   return (
-    <AuthContext.Provider value={{ usuario, login, logout }}>
+    <AuthContext.Provider value={{ usuario, login, registrar, logout }}>
       {children}
     </AuthContext.Provider>
   );

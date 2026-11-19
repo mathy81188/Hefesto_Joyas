@@ -79,7 +79,7 @@ export async function inicializarDatos() {
     localStorage.setItem(JOYAS_KEY, JSON.stringify(joyasIniciales));
   }
 
-  // 3. Inicializar Pedidos / Encargos a medida (para que el Admin ya vea movimiento)
+  // mock Pedidos / Encargos a medida 
   if (!localStorage.getItem(PEDIDOS_KEY)) {
     const pedidosIniciales = [
       {

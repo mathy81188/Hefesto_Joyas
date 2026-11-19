@@ -15,12 +15,46 @@ export async function loginUsuario(email, password) {
     throw new Error("Email o contraseña incorrectos");
   }
 
-  // Guarda datos de sesion
   const datosSesion = {
     id: usuarioValido.id,
     nombre: usuarioValido.nombre,
     email: usuarioValido.email,
     rol: usuarioValido.rol,
+  };
+
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify(datosSesion));
+  return datosSesion;
+}
+
+export async function registrarUsuario(nombre, email, password) {
+  const usuarios = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+
+  const existeEmail = usuarios.some(
+    (u) => u.email.toLowerCase() === email.toLowerCase()
+  );
+
+  if (existeEmail) {
+    throw new Error("Ya existe una cuenta registrada con ese email");
+  }
+
+  const passwordHasheada = await hashearPassword(password);
+
+  const nuevoUsuario = {
+    id: Date.now(),
+    nombre: nombre.trim(),
+    email: email.trim().toLowerCase(),
+    password: passwordHasheada,
+    rol: "cliente",
+  };
+
+  usuarios.push(nuevoUsuario);
+  localStorage.setItem(USERS_KEY, JSON.stringify(usuarios));
+
+  const datosSesion = {
+    id: nuevoUsuario.id,
+    nombre: nuevoUsuario.nombre,
+    email: nuevoUsuario.email,
+    rol: nuevoUsuario.rol,
   };
 
   sessionStorage.setItem(SESSION_KEY, JSON.stringify(datosSesion));
