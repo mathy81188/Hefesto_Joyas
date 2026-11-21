@@ -52,7 +52,7 @@ export function Navbar() {
       <div className="navbar-inner">
         <Link to="/" className="navbar-brand">
           <img
-              src="./public/logo-hefesto.svg"
+              src="/logo-hefesto.svg"
               alt="Hefesto Joyas"
               className="navbar-logo-img"
             />

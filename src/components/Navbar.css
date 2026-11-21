@@ -48,11 +48,12 @@
 
 .nav-link:hover {
   color: var(--text-primary);
+   border-bottom-color: var(--accent-gold);
 }
 
 .nav-link.active {
   color: var(--accent-gold);
-  border-bottom-color: var(--accent-gold);
+ 
 }
 
 .nav-user-badge {
@@ -72,10 +73,12 @@
   border-radius: 4px;
   font-size: 0.9rem;
   transition: background-color 0.2s ease;
+  text-decoration: none;
 }
 
 .nav-btn-login:hover {
-  background-color: var(--accent-gold-hover);
+  color: var(--bg-elevated);
+  text-decoration: underline;
 }
 
 .nav-btn-logout {
