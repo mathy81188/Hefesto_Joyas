@@ -11,6 +11,139 @@
   --success-color: #81c784;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: Verdana, Geneva, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 1rem;
+}
+
+button,
+select,
+input {
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: var(--accent-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-gold-hover);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.form-group label {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.form-group input,
+.form-group select,
+.admin-form input,
+.admin-form select,
+.encargo-form input,
+.encargo-form select,
+.login-form input {
+  width: 100%;
+  min-height: 42px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  color: var(--text-primary);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.admin-form input:focus,
+.admin-form select:focus,
+.encargo-form input:focus,
+.encargo-form select:focus,
+.login-form input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px var(--accent-gold);
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -35,5 +168,11 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .main-content {
+    padding: 1rem;
+  }
 }
