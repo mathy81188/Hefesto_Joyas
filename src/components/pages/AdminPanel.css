@@ -68,6 +68,12 @@
   align-items: start;
 }
 
+.admin-split > .admin-card:first-child {
+  position: sticky;
+  top: 92px; 
+  overflow-y: auto;
+} 
+
 @media (min-width: 901px) {
   .admin-split {
     grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
@@ -79,6 +85,7 @@
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
+
 }
 
 .admin-card h3 {
