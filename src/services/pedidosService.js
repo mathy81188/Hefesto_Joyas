@@ -26,3 +26,10 @@ export function actualizarEstadoPedido(pedidoId, nuevoEstado) {
   localStorage.setItem(PEDIDOS_KEY, JSON.stringify(actualizados));
   return actualizados;
 }
+
+export function eliminarPedido(pedidoId) {
+  const pedidos = obtenerPedidos();
+  const actualizados = pedidos.filter((p) => p.id !== pedidoId);
+  localStorage.setItem(PEDIDOS_KEY, JSON.stringify(actualizados));
+  return actualizados;
+}

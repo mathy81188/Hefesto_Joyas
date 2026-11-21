@@ -1,0 +1,42 @@
+[
+  {
+    "id": 101,
+    "nombre": "Anillo Forja de Vulcano",
+    "categoria": "Anillos",
+    "material": "Oro 18k",
+    "precio": 145000,
+    "stock": 5,
+    "descripcion": "Anillo macizo texturado a mano con acabado satinado.",
+    "imagen": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 102,
+    "nombre": "Collar Lágrima de Obsidiana",
+    "categoria": "Collares",
+    "material": "Plata 925",
+    "precio": 68000,
+    "stock": 80,
+    "descripcion": "Cadena de plata envejecida con dije de piedra volcánica natural.",
+    "imagen": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 103,
+    "nombre": "Aros Brasas del Olimpo",
+    "categoria": "Aros",
+    "material": "Oro 18k",
+    "precio": 92000,
+    "stock": 300,
+    "descripcion": "Aros colgantes con engarce de granate rojo intenso.",
+    "imagen": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 104,
+    "nombre": "Pulsera Eslabones de Hierro",
+    "categoria": "Pulseras",
+    "material": "Plata 925",
+    "precio": 75000,
+    "stock": 100,
+    "descripcion": "Pulsera robusta de eslabones forjados con cierre de seguridad.",
+    "imagen": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80"
+  }
+]

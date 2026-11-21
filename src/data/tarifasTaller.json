@@ -1,0 +1,14 @@
+{
+  "preciosBase": {
+    "Oro 18k": 130000,
+    "Plata 925": 65000,
+    "Bronce": 45000
+  },
+  "extraPiedra": {
+    "Sin piedra": 0,
+    "Obsidiana": 15000,
+    "Granate": 22000,
+    "Esmeralda": 35000
+  },
+  "extraGrabado": 8000
+}

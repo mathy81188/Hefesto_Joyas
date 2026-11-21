@@ -1,0 +1,12 @@
+[
+  {
+    "id": 5001,
+    "usuarioId": 2,
+    "clienteNombre": "Matías Cliente",
+    "tipo": "Encargo a medida",
+    "detalle": "Alianza en Plata 925 con grabado interior '8/11'",
+    "fecha": "2026-11-18",
+    "total": 85000,
+    "estado": "En forja"
+  }
+]
