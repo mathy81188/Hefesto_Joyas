@@ -4,7 +4,7 @@
   border-left: 4px solid var(--accent-gold);
   border-radius: 8px;
   padding: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-banner h1 {
@@ -32,7 +32,7 @@
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
   background-color: var(--bg-secondary);
   padding: 1rem 1.25rem;
   border-radius: 6px;

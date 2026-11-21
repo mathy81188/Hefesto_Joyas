@@ -4,6 +4,7 @@ import { useAuth } from "../../context/useAuth";
 import { obtenerJoyas, guardarJoyas } from "../../services/joyasService";
 import { crearPedido } from "../../services/pedidosService";
 import { JoyaCard } from "../JoyaCard";
+import { AlertModal } from "../AlertModal";
 import "./Home.css";
 
 export function Home() {
@@ -15,7 +16,6 @@ export function Home() {
   const { usuario } = useAuth();
   const navigate = useNavigate();
 
- 
   function handleComprar(joyaSeleccionada) {
     if (!usuario) {
       navigate("/login");
@@ -46,8 +46,8 @@ export function Home() {
     };
 
     crearPedido(nuevoPedido);
-    setMensaje(`¡Solicitaste "${joyaSeleccionada.nombre}"! seguilo desde Mis Pedidos.`);
-    setTimeout(() => setMensaje(""), 4000);
+    setMensaje(`¡Solicitaste "${joyaSeleccionada.nombre}"! Podés seguirlo en Mis Pedidos.`);
+   
   }
 
   const joyasFiltradas = joyas.filter((joya) => {
@@ -63,11 +63,16 @@ export function Home() {
       <div className="hero-banner">
         <h1>Orfebrería Forjada a Mano</h1>
         <p>
-          Piezas únicas en oro y plata de ley, creadas en nuestro taller artesanal.
+          Piezas únicas en oro y plata de ley, creadas en nuestro taller
+          artesanal.
         </p>
       </div>
 
-      {mensaje && <div className="home-toast">{mensaje}</div>}
+      <AlertModal
+        mensaje={mensaje}
+        tipo="exito"
+        onCerrar={() => setMensaje("")}
+      />
 
       <div className="filtros-bar">
         <div className="filtro-grupo">
@@ -75,8 +80,7 @@ export function Home() {
           <select
             id="cat-select"
             value={filtroCategoria}
-            onChange={(e) => setFiltroCategoria(e.target.value)}
-          >
+            onChange={(e) => setFiltroCategoria(e.target.value)}>
             <option value="Todas">Todas</option>
             <option value="Anillos">Anillos</option>
             <option value="Collares">Collares</option>
@@ -90,8 +94,7 @@ export function Home() {
           <select
             id="mat-select"
             value={filtroMaterial}
-            onChange={(e) => setFiltroMaterial(e.target.value)}
-          >
+            onChange={(e) => setFiltroMaterial(e.target.value)}>
             <option value="Todos">Todos</option>
             <option value="Oro 18k">Oro 18k</option>
             <option value="Plata 925">Plata 925</option>
@@ -100,7 +103,9 @@ export function Home() {
       </div>
 
       {joyasFiltradas.length === 0 ? (
-        <p className="sin-resultados">No hay piezas que coincidan con esos filtros.</p>
+        <p className="sin-resultados">
+          No hay piezas que coincidan con esos filtros.
+        </p>
       ) : (
         <div className="joyas-grid">
           {joyasFiltradas.map((joya) => (
