@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 60" width="340" height="60">
+  <!-- Emblema romboidal minimalista -->
+  <polygon points="24,12 36,30 24,48 12,30" fill="none" stroke="#D4AF37" stroke-width="1.8" />
+  <circle cx="24" cy="30" r="2.5" fill="#D4AF37" />
+
+  <!-- Tipografía principal elegante -->
+  <text x="50" y="32" fill="#D4AF37" font-family="&#39;Playfair Display&#39;, &#39;Didot&#39;, &#39;Bodoni MT&#39;, &#39;Times New Roman&#39;, Georgia, serif" font-size="25" font-style="italic" font-weight="600" letter-spacing="2.5">
+    Hefesto Joyas
+  </text>
+
+  <!-- Subtítulo fino artesanal -->
+  <text x="52" y="48" fill="#D4AF37" fill-opacity="0.8" font-family="Georgia, &#39;Times New Roman&#39;, serif" font-size="9.5" letter-spacing="4.2">
+    ORFEBRERÍA ARTESANAL
+  </text>
+</svg>
