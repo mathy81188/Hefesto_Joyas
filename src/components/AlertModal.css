@@ -1,0 +1,97 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeInOverlay 0.2s ease;
+}
+
+.modal-box {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--accent-gold);
+  border-radius: 10px;
+  padding: 2rem 1.75rem;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+  animation: scaleInModal 0.22s ease;
+}
+
+.modal-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 0 auto 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.modal-icon.exito {
+  background-color: rgba(212, 175, 55, 0.15);
+  border: 2px solid var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.modal-icon.error {
+  background-color: rgba(207, 102, 121, 0.15);
+  border: 2px solid var(--danger-color);
+  color: var(--danger-color);
+}
+
+.modal-title {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-message {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 1.5rem;
+}
+
+.modal-btn {
+  background-color: var(--accent-gold);
+  color: #121212;
+  border: none;
+  border-radius: 5px;
+  padding: 0.65rem 1.75rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.modal-btn:hover {
+  background-color: var(--accent-gold-hover);
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
