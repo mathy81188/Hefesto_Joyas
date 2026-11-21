@@ -5,7 +5,7 @@
     "categoria": "Anillos",
     "material": "Oro 18k",
     "precio": 145000,
-    "stock": 5,
+    "stock": 500,
     "descripcion": "Anillo macizo texturado a mano con acabado satinado.",
     "imagen": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80"
   },
@@ -15,7 +15,7 @@
     "categoria": "Collares",
     "material": "Plata 925",
     "precio": 68000,
-    "stock": 8,
+    "stock": 800,
     "descripcion": "Cadena de plata envejecida con dije de piedra volcánica natural.",
     "imagen": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80"
   },
@@ -25,7 +25,7 @@
     "categoria": "Aros",
     "material": "Oro 18k",
     "precio": 92000,
-    "stock": 3,
+    "stock": 300,
     "descripcion": "Aros colgantes con engarce de granate rojo intenso.",
     "imagen": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80"
   },
@@ -35,7 +35,7 @@
     "categoria": "Pulseras",
     "material": "Plata 925",
     "precio": 75000,
-    "stock": 10,
+    "stock": 1000 ,
     "descripcion": "Pulsera robusta de eslabones forjados con cierre de seguridad.",
     "imagen": "https://acdn-us.mitiendanube.com/stores/002/348/405/products/pulsera-plata-925-eslabones-anchos-21cm-8ba3df9ac2f4b8def017875924723898-1024-1024.webp"
   },
@@ -45,7 +45,7 @@
     "categoria": "Anillos",
     "material": "Plata 925",
     "precio": 72000,
-    "stock": 6,
+    "stock": 600,
     "descripcion": "Anillo sello clásico de mesa plana con bordes biselados a lima.",
     "imagen": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=600&q=80"
   },
@@ -55,7 +55,7 @@
     "categoria": "Collares",
     "material": "Oro 18k",
     "precio": 168000,
-    "stock": 2,
+    "stock": 200,
     "descripcion": "Medallón grabado en relieve con cadena barbada fina de oro.",
     "imagen": "https://i.etsystatic.com/59547720/r/il/09aa39/7719377839/il_fullxfull.7719377839_omss.jpg"
   },
@@ -65,7 +65,7 @@
     "categoria": "Aros",
     "material": "Plata 925",
     "precio": 49000,
-    "stock": 9,
+    "stock": 900,
     "descripcion": "Argollas medianas con textura martillada a mano y brillo espejo.",
     "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrJ6nr5g5EbOm5qQ0NgB3lA6h_tq7SkjtpGLEpm4a-iYkDYruiRlb6FZc&s=10"
   },
@@ -75,7 +75,7 @@
     "categoria": "Pulseras",
     "material": "Oro 18k",
     "precio": 195000,
-    "stock": 2,
+    "stock": 200,
     "descripcion": "Brazalete rígido abierto con terminaciones cónicas pulidas.",
     "imagen": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=600&q=80"
   },
@@ -85,7 +85,7 @@
     "categoria": "Anillos",
     "material": "Oro 18k",
     "precio": 182000,
-    "stock": 3,
+    "stock": 300,
     "descripcion": "Banda fina con engarce de esmeralda talla oval y detalle milgrain.",
     "imagen": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=600&q=80"
   },
@@ -95,7 +95,7 @@
     "categoria": "Collares",
     "material": "Bronce",
     "precio": 52000,
-    "stock": 7,
+    "stock": 700,
     "descripcion": "Pieza articulada en bronce bruñido con pátina cálida artesanal.",
     "imagen": "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=600&q=80"
   },
@@ -105,7 +105,7 @@
     "categoria": "Aros",
     "material": "Plata 925",
     "precio": 58000,
-    "stock": 4,
+    "stock": 400,
     "descripcion": "Aros de cierre pasante con piedra lunar iridiscente engarzada.",
     "imagen": "https://images.pexels.com/photos/1721937/pexels-photo-1721937.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
@@ -115,7 +115,7 @@
     "categoria": "Pulseras",
     "material": "Plata 925",
     "precio": 84000,
-    "stock": 5,
+    "stock": 500,
     "descripcion": "Tejido artesanal de hilos trenzados con broche cajón reforzado.",
     "imagen": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80"
   },
@@ -126,7 +126,7 @@
     "categoria": "Anillos",
     "material": "Plata 925",
     "precio": 89000,
-    "stock": 4,
+    "stock": 400,
     "descripcion": "Sello macizo de cuerpo ancho con piedra ónix negra plana engarzada al ras.",
     "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR47iy6I75BVHx3RSm3avWfwbQya8nGX-7AD8ttWbNrLaJGVYkkF2ofmtfQ&s=10"
   },
@@ -136,7 +136,7 @@
     "categoria": "Collares",
     "material": "Plata 925",
     "precio": 118000,
-    "stock": 5,
+    "stock": 500,
     "descripcion": "Cadena masculina de eslabones planos entrelazados con broche mosquetón forjado.",
     "imagen": "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=600&q=80"
   },
@@ -146,7 +146,7 @@
     "categoria": "Pulseras",
     "material": "Bronce",
     "precio": 64000,
-    "stock": 6,
+    "stock": 600,
     "descripcion": "Brazalete abierto de sección cuadrada forjado a golpe de martillo con pátina oscura.",
     "imagen": "https://images.pexels.com/photos/2879829/pexels-photo-2879829.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
@@ -156,7 +156,7 @@
     "categoria": "Anillos",
     "material": "Oro 18k",
     "precio": 175000,
-    "stock": 2,
+    "stock": 200,
     "descripcion": "Alianza ancha de 8mm con grabado profundo en bajo relieve y acabado envejecido.",
     "imagen": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80"
   },
@@ -166,7 +166,7 @@
     "categoria": "Collares",
     "material": "Oro 18k",
     "precio": 156000,
-    "stock": 3,
+    "stock": 300,
     "descripcion": "Placa rectangular maciza con textura de fundición y cadena veneciana reforzada.",
     "imagen": "https://www.doblearo.com/4780-large_default/collar-lingote-personalizado-dore.jpg"
   },
@@ -176,7 +176,7 @@
     "categoria": "Accesorios",
     "material": "Plata 925",
     "precio": 78000,
-    "stock": 4,
+    "stock": 400,
     "descripcion": "Par de gemelos artesanales para camisa de vestir con mecanismo basculante macizo.",
     "imagen": "https://gemelolandia.com/cdn/shop/files/Coronasdoradasconpanelesblancos_3.png?v=1792487091&width=400"
   }
