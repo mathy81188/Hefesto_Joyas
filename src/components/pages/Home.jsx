@@ -86,6 +86,7 @@ export function Home() {
             <option value="Collares">Collares</option>
             <option value="Aros">Aros</option>
             <option value="Pulseras">Pulseras</option>
+            <option value="Accesorios">Accesorios</option>
           </select>
         </div>
 
@@ -98,6 +99,8 @@ export function Home() {
             <option value="Todos">Todos</option>
             <option value="Oro 18k">Oro 18k</option>
             <option value="Plata 925">Plata 925</option>
+            <option value="Bronce">Bronce</option>
+
           </select>
         </div>
       </div>
