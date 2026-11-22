@@ -5,7 +5,7 @@ import {
   obtenerSesionActual,
   cerrarSesion,
 } from "../services/authService";
-import { inicializarDatos } from "../data/Data";
+import { inicializarDatos } from "../data/data";
 import { AuthContext } from "./useAuth";
 
 export function AuthProvider({ children }) {

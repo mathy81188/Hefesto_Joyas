@@ -64,7 +64,7 @@ export function ClientePanel() {
   }
 
   function handleEliminarPedido(pedidoAEliminar) {
-    // 1. Si era una compra de catálogo, devolvemos 1 unidad al stock de esa joya
+    // si era una compra de catalogo se devuelven las un. al stock
     if (pedidoAEliminar.tipo === "Compra de catálogo") {
       const joyasActuales = obtenerJoyas();
       const joyasRestauradas = joyasActuales.map((joya) => {
@@ -76,7 +76,7 @@ export function ClientePanel() {
       guardarJoyas(joyasRestauradas);
     }
 
-    // 2. Eliminamos el pedido de localStorage y actualizamos la lista en pantalla
+    //eliminado el pedido del ls y actualiza lista en pantalla
     eliminarPedido(pedidoAEliminar.id);
     const filtrados = misPedidos.filter((p) => p.id !== pedidoAEliminar.id);
     setMisPedidos(filtrados);
