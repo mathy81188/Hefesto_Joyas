@@ -13,12 +13,12 @@ import "./ClientePanel.css";
 export function ClientePanel() {
   const { usuario } = useAuth();
 
-  // filtro de pedidios de usuario logueado
   const [misPedidos, setMisPedidos] = useState(() => {
     const todos = obtenerPedidos();
     return todos.filter((p) => p.usuarioId === usuario.id);
   });
 
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [tipoPieza, setTipoPieza] = useState("Anillo");
   const [material, setMaterial] = useState("Plata 925");
   const [piedra, setPiedra] = useState("Sin piedra");
@@ -58,30 +58,31 @@ export function ClientePanel() {
     crearPedido(nuevoEncargo);
     setMisPedidos([nuevoEncargo, ...misPedidos]);
 
-    // Limpiar campos opcionales y notificar
     setGrabado("");
+    setMostrarFormulario(false);
     setMensaje("Tu solicitud de pieza a medida ingresó al taller.");
   }
 
   function handleEliminarPedido(pedidoAEliminar) {
-    // si era una compra de catalogo se devuelven las un. al stock
     if (pedidoAEliminar.tipo === "Compra de catálogo") {
+      const unidadesADevolver = pedidoAEliminar.cantidad || 1;
       const joyasActuales = obtenerJoyas();
+
       const joyasRestauradas = joyasActuales.map((joya) => {
         if (pedidoAEliminar.detalle.startsWith(joya.nombre)) {
-          return { ...joya, stock: joya.stock + 1 };
+          return { ...joya, stock: joya.stock + unidadesADevolver };
         }
         return joya;
       });
+
       guardarJoyas(joyasRestauradas);
     }
 
-    //eliminado el pedido del ls y actualiza lista en pantalla
     eliminarPedido(pedidoAEliminar.id);
     const filtrados = misPedidos.filter((p) => p.id !== pedidoAEliminar.id);
     setMisPedidos(filtrados);
 
-    setMensaje("El pedido fue cancelado y eliminado de tu lista.");
+    setMensaje("El pedido fue cancelado y el stock fue restaurado.");
   }
 
   function obtenerClaseEstado(estado) {
@@ -94,13 +95,19 @@ export function ClientePanel() {
     return "estado-badge pendiente";
   }
 
+  function toggleFormulario() {
+    if (mostrarFormulario) {
+      setMostrarFormulario(false);
+    } else {
+      setMostrarFormulario(true);
+    }
+  }
+
   return (
     <section className="cliente-page">
       <div className="cliente-header">
         <h2>Taller Personal de {usuario.nombre}</h2>
-        <p>
-          Diseñá una pieza exclusiva a medida o seguí el estado de tus pedidos.
-        </p>
+        <p>Seguí el estado de tus compras o encargá una pieza forjada desde cero.</p>
       </div>
 
       <AlertModal
@@ -109,83 +116,14 @@ export function ClientePanel() {
         onCerrar={() => setMensaje("")}
       />
 
-      <div className="cliente-grid">
-        {/* izquierda: Formulario de encargo a medida */}
-        <div className="encargo-card">
-          <h3>Solicitar Joya a Medida</h3>
-
-          <form onSubmit={handleCrearEncargo} className="encargo-form">
-            <div className="form-group">
-              <label htmlFor="tipo-pieza">Tipo de pieza</label>
-              <select
-                id="tipo-pieza"
-                value={tipoPieza}
-                onChange={(e) => setTipoPieza(e.target.value)}>
-                <option value="Anillo">Anillo</option>
-                <option value="Collar">Collar</option>
-                <option value="Pulsera">Pulsera</option>
-                <option value="Aros">Aros</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="material-pieza">Metal principal</label>
-              <select
-                id="material-pieza"
-                value={material}
-                onChange={(e) => setMaterial(e.target.value)}>
-                <option value="Plata 925">Plata 925 ($65.000 base)</option>
-                <option value="Oro 18k">Oro 18k ($130.000 base)</option>
-                <option value="Bronce">Bronce ($45.000 base)</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="piedra-pieza">Engarce de piedra</label>
-              <select
-                id="piedra-pieza"
-                value={piedra}
-                onChange={(e) => setPiedra(e.target.value)}>
-                <option value="Sin piedra">Sin piedra ($0)</option>
-                <option value="Obsidiana">Obsidiana (+$15.000)</option>
-                <option value="Granate">Granate (+$22.000)</option>
-                <option value="Esmeralda">Esmeralda (+$35.000)</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="grabado-pieza">
-                Grabado personalizado (opcional, +$8.000)
-              </label>
-              <input
-                id="grabado-pieza"
-                type="text"
-                maxLength={25}
-                placeholder="Ej. Iniciales o fecha"
-                value={grabado}
-                onChange={(e) => setGrabado(e.target.value)}
-              />
-            </div>
-
-            <div className="presupuesto-box">
-              <span>Presupuesto estimado:</span>
-              <strong>${calcularPresupuesto().toLocaleString("es-AR")}</strong>
-            </div>
-
-            <button type="submit" className="btn-encargar">
-              Enviar Encargo al Taller
-            </button>
-          </form>
-        </div>
-
-        {/* derecha: Historial de pedidos/encargos */}
+      <div className="cliente-stack">
+        {/* Bloque 1 (Principal): Historial de Pedidos y Encargos */}
         <div className="pedidos-card">
           <h3>Mis Pedidos y Encargos ({misPedidos.length})</h3>
 
           {misPedidos.length === 0 ? (
             <p className="sin-pedidos">
-              Todavía no realizaste compras ni encargos. Explorá el catálogo o
-              diseñá tu pieza.
+              Todavía no realizaste compras ni encargos. Explorá el catálogo o diseñá tu pieza más abajo.
             </p>
           ) : (
             <div className="pedidos-lista">
@@ -202,22 +140,112 @@ export function ClientePanel() {
 
                   <div className="pedido-bottom">
                     <span className="pedido-fecha">Fecha: {pedido.fecha}</span>
-                    <strong className="pedido-total">
-                      ${pedido.total.toLocaleString("es-AR")}
-                    </strong>
 
-                    {pedido.estado === "Pendiente" && (
-                      <button
-                        type="button"
-                        className="btn-cancelar-pedido"
-                        onClick={() => handleEliminarPedido(pedido)}>
-                        Cancelar
-                      </button>
-                    )}
+                    <div className="pedido-acciones">
+                      <strong className="pedido-total">
+                        ${pedido.total.toLocaleString("es-AR")}
+                      </strong>
+
+                      {pedido.estado === "Pendiente" && (
+                        <button
+                          type="button"
+                          className="btn-cancelar-pedido"
+                          onClick={() => handleEliminarPedido(pedido)}
+                        >
+                          Cancelar
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </article>
               ))}
             </div>
+          )}
+        </div>
+
+        {/* Bloque 2 (Secundario desplegable): Encargo a Medida */}
+        <div className="encargo-card">
+          <div className="encargo-toggle-header" onClick={toggleFormulario}>
+            <div>
+              <h3>Solicitar Joya a Medida (Diseño desde cero)</h3>
+              <p className="encargo-subtitulo">
+                ¿Buscás una pieza única que no está en el catálogo? Cotizala y encargala al orfebre.
+              </p>
+            </div>
+
+            <button type="button" className="btn-toggle-encargo">
+              {mostrarFormulario ? "Ocultar formulario ▲" : "Diseñar pieza ▼"}
+            </button>
+          </div>
+
+          {mostrarFormulario && (
+            <form onSubmit={handleCrearEncargo} className="encargo-form encargo-form-abierto">
+              <div className="encargo-campos-grid">
+                <div className="form-group">
+                  <label htmlFor="tipo-pieza">Tipo de pieza</label>
+                  <select
+                    id="tipo-pieza"
+                    value={tipoPieza}
+                    onChange={(e) => setTipoPieza(e.target.value)}
+                  >
+                    <option value="Anillo">Anillo</option>
+                    <option value="Collar">Collar</option>
+                    <option value="Pulsera">Pulsera</option>
+                    <option value="Aros">Aros</option>
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="material-pieza">Metal principal</label>
+                  <select
+                    id="material-pieza"
+                    value={material}
+                    onChange={(e) => setMaterial(e.target.value)}
+                  >
+                    <option value="Plata 925">Plata 925 ($65.000 base)</option>
+                    <option value="Oro 18k">Oro 18k ($130.000 base)</option>
+                    <option value="Bronce">Bronce ($45.000 base)</option>
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="piedra-pieza">Engarce de piedra</label>
+                  <select
+                    id="piedra-pieza"
+                    value={piedra}
+                    onChange={(e) => setPiedra(e.target.value)}
+                  >
+                    <option value="Sin piedra">Sin piedra ($0)</option>
+                    <option value="Obsidiana">Obsidiana (+$15.000)</option>
+                    <option value="Granate">Granate (+$22.000)</option>
+                    <option value="Esmeralda">Esmeralda (+$35.000)</option>
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="grabado-pieza">
+                    Grabado personalizado (opcional, +$8.000)
+                  </label>
+                  <input
+                    id="grabado-pieza"
+                    type="text"
+                    maxLength={25}
+                    placeholder="Ej. Iniciales o fecha"
+                    value={grabado}
+                    onChange={(e) => setGrabado(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="presupuesto-box">
+                <span>Presupuesto estimado:</span>
+                <strong>${calcularPresupuesto().toLocaleString("es-AR")}</strong>
+              </div>
+
+              <button type="submit" className="btn-encargar">
+                Enviar Encargo al Taller
+              </button>
+            </form>
           )}
         </div>
       </div>

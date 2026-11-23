@@ -10,9 +10,46 @@ export function obtenerPedidos() {
 
 export function crearPedido(nuevoPedido) {
   const pedidos = obtenerPedidos();
-  pedidos.unshift(nuevoPedido);
-  localStorage.setItem(PEDIDOS_KEY, JSON.stringify(pedidos));
-  return nuevoPedido;
+
+  if (nuevoPedido.tipo === "Compra de catálogo") {
+    const detalleBase = nuevoPedido.detalleBase || nuevoPedido.detalle;
+    const indiceExistente = pedidos.findIndex(
+      (p) =>
+        p.usuarioId === nuevoPedido.usuarioId &&
+        p.tipo === "Compra de catálogo" &&
+        p.estado === "Pendiente" &&
+        (p.detalleBase || p.detalle) === detalleBase
+    );
+
+    if (indiceExistente !== -1) {
+      const existente = pedidos[indiceExistente];
+      const nuevaCantidad = (existente.cantidad || 1) + 1;
+
+      pedidos[indiceExistente] = {
+        ...existente,
+        detalleBase: detalleBase,
+        cantidad: nuevaCantidad,
+        detalle: `${detalleBase} (x${nuevaCantidad})`,
+        total: existente.total + nuevoPedido.total,
+        fecha: nuevoPedido.fecha,
+      };
+
+      localStorage.setItem(PEDIDOS_KEY, JSON.stringify(pedidos));
+      return pedidos;
+    }
+  }
+
+  const actualizados = [
+    {
+      ...nuevoPedido,
+      detalleBase: nuevoPedido.detalleBase || nuevoPedido.detalle,
+      cantidad: nuevoPedido.cantidad || 1,
+    },
+    ...pedidos,
+  ];
+
+  localStorage.setItem(PEDIDOS_KEY, JSON.stringify(actualizados));
+  return actualizados;
 }
 
 export function actualizarEstadoPedido(pedidoId, nuevoEstado) {
