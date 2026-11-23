@@ -71,4 +71,5 @@ export function obtenerSesionActual() {
 
 export function cerrarSesion() {
   sessionStorage.removeItem(SESSION_KEY);
+  localStorage.removeItem(SESSION_KEY);
 }

@@ -34,17 +34,21 @@ export function Home() {
     setJoyas(joyasActualizadas);
 
     // genera pedido sefun cliente
+    const descripcionPieza = `${joyaSeleccionada.nombre} (${joyaSeleccionada.material})`;
+
     const nuevoPedido = {
       id: Date.now(),
       usuarioId: usuario.id,
       clienteNombre: usuario.nombre,
       tipo: "Compra de catálogo",
-      detalle: `${joyaSeleccionada.nombre} (${joyaSeleccionada.material})`,
+      detalleBase: descripcionPieza,
+      detalle: descripcionPieza,
+      cantidad: 1,
       fecha: new Date().toISOString().split("T")[0],
       total: joyaSeleccionada.precio,
       estado: "Pendiente",
     };
-
+    
     crearPedido(nuevoPedido);
     setMensaje(`¡Solicitaste "${joyaSeleccionada.nombre}"! Podés seguirlo en Mis Pedidos.`);
    

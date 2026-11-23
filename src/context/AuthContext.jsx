@@ -40,6 +40,7 @@ export function AuthProvider({ children }) {
   function logout() {
     cerrarSesion();
     setUsuario(null);
+    
   }
 
   if (cargando) {
