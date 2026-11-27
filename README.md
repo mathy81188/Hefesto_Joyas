@@ -43,54 +43,58 @@ La aplicación inicializa automáticamente datos semilla (`src/data/*.json`) en 
 ## Arquitectura y Estructura del Proyecto
 
 El proyecto está organizado de forma modular separando vistas, estilos por componente, semillas de datos en JSON y servicios de persistencia (preparado para escalar a una API REST en Node.js / Express):
-
-```text
 hefesto_joyas/
 ├── public/
-│   ├── favicon.svg              # Ícono vectorial de pestaña (HJ)
-│   └── logo-hefesto.svg         # Logotipo vectorial de la barra de navegación
+│   ├── favicon.svg                  # Ícono vectorial de pestaña (HJ)
+│   └── logo-hefesto.svg             # Logotipo vectorial de la barra de navegación
 ├── src/
 │   ├── components/
-│   │   ├── pages/
-│   │   │   ├── AdminPanel.jsx   # Panel de administración (ABM)
-│   │   │   ├── AdminPanel.css
-│   │   │   ├── ClientePanel.jsx # Panel de pedidos y cotizador a medida
-│   │   │   ├── ClientePanel.css
-│   │   │   ├── Home.jsx         # Catálogo principal y filtros
-│   │   │   ├── Home.css
-│   │   │   ├── Login.jsx        # Acceso y registro de usuarios
-│   │   │   └── Login.css
-│   │   ├── AlertModal.jsx       # Modal reutilizable de confirmación y error
+│   │   ├── admin/
+│   │   │   ├── JoyaForm.jsx         # Formulario sticky de alta y edición de joyas
+│   │   │   ├── JoyasTabla.jsx       # Tabla de inventario con acciones de edición y baja
+│   │   │   ├── PedidosGestion.jsx   # Tabla global de pedidos y cambio de estado en taller
+│   │   │   └── UsuariosGestion.jsx  # Alta, cambio de rol y baja de usuarios
+│   │   ├── cliente/
+│   │   │   ├── EncargoMedidaForm.jsx   # Acordeón desplegable del cotizador a medida
+│   │   │   └── ListaPedidosCliente.jsx # Historial de pedidos y encargos del cliente
+│   │   ├── AlertModal.jsx           # Modal reutilizable de confirmación y error
 │   │   ├── AlertModal.css
-│   │   ├── JoyaCard.jsx         # Tarjeta individual de producto
+│   │   ├── JoyaCard.jsx             # Tarjeta individual de producto
 │   │   ├── JoyaCard.css
-│   │   ├── Navbar.jsx           # Barra de navegación dinámica según rol
+│   │   ├── Navbar.jsx               # Barra de navegación dinámica según rol
 │   │   ├── Navbar.css
-│   │   └── RutaProtegida.jsx    # Guardián de rutas por autenticación y rol
+│   │   └── RutaProtegida.jsx        # Guardián de rutas por autenticación y rol
+│   ├── pages/
+│   │   ├── AdminPanel.jsx           # Contenedor del panel de administración (ABM)
+│   │   ├── AdminPanel.css
+│   │   ├── ClientePanel.jsx         # Contenedor del panel de cliente
+│   │   ├── ClientePanel.css
+│   │   ├── Home.jsx                 # Catálogo principal y filtros
+│   │   ├── Home.css
+│   │   ├── Login.jsx                # Acceso y registro de usuarios
+│   │   └── Login.css
 │   ├── context/
-│   │   ├── AuthContext.jsx      # Estado global de autenticación
-│   │   └── useAuth.js           # Hook personalizado de acceso al contexto
+│   │   ├── AuthContext.jsx          # Estado global de autenticación
+│   │   └── useAuth.js               # Hook personalizado de acceso al contexto
 │   ├── data/
-│   │   ├── joyas.json           # Catálogo inicial (18 piezas)
-│   │   ├── pedidos.json         # Encargos iniciales de muestra
-│   │   ├── tarifasTaller.json   # Tarifario base para cotización a medida
-│   │   └── seedData.js          # Inicializador de semillas en localStorage
+│   │   ├── joyas.json               # Catálogo inicial (18 piezas)
+│   │   ├── pedidos.json             # Encargos iniciales de muestra
+│   │   ├── tarifasTaller.json       # Tarifario base para cotización a medida
+│   │   └── seedData.js              # Inicializador de semillas en localStorage
 │   ├── services/
-│   │   ├── authService.js       # Login, registro y manejo de sesión
-│   │   ├── joyasService.js      # Operaciones CRUD de joyas
-│   │   ├── pedidosService.js    # Creación, acumulación y baja de pedidos
-│   │   └── usuariosService.js   # Gestión de usuarios y roles
+│   │   ├── authService.js           # Login, registro y manejo de sesión
+│   │   ├── joyasService.js          # Operaciones CRUD de joyas
+│   │   ├── pedidosService.js        # Creación, acumulación y baja de pedidos
+│   │   └── usuariosService.js       # Gestión de usuarios y roles
 │   ├── utils/
-│   │   └── hashPassword.js      # Utilidad de hashing SHA-256
-│   ├── App.jsx                  # Configuración de React Router
+│   │   └── hashPassword.js          # Utilidad de hashing SHA-256
+│   ├── App.jsx                      # Configuración de React Router
 │   ├── App.css
-│   ├── index.css                # Variables de diseño (paleta oscura y dorada)
-│   └── main.jsx                 # Punto de entrada de la aplicación
+│   ├── index.css                    # Variables de diseño (paleta oscura y dorada)
+│   └── main.jsx                     # Punto de entrada de la aplicación
 ├── index.html
 ├── package.json
 └── vite.config.js
-
----
 
 ## Instalación y Ejecución Local
 
