@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { useAuth } from "../../context/useAuth";
-import { obtenerJoyas, guardarJoyas } from "../../services/joyasService";
+import { useAuth } from "../context/useAuth";
+import { obtenerJoyas, guardarJoyas } from "../services/joyasService";
 import {
   obtenerUsuarios,
   crearUsuarioAdmin,
   cambiarRolUsuario,
   eliminarUsuario,
-} from "../../services/usuariosService";
+} from "../services/usuariosService";
 import {
   obtenerPedidos,
   actualizarEstadoPedido,
-} from "../../services/pedidosService";
-import { AlertModal } from "../AlertModal";
+} from "../services/pedidosService";
+import { AlertModal } from "../components/AlertModal";
 import "./AdminPanel.css";
 
 const IMAGEN_POR_DEFECTO =

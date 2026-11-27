@@ -2,10 +2,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Ruta } from "./components/Ruta";
 import { Navbar } from "./components/Navbar";
 
-import { Home } from "./components/pages/Home";
-import { Login } from "./components/pages/Login";
-import { ClientePanel } from "./components/pages/ClientePanel";
-import { AdminPanel } from "./components/pages/AdminPanel";
+import { Home } from "./pages/Home";
+import { Login } from "./pages/Login";
+import { ClientePanel } from "./pages/ClientePanel";
+import { AdminPanel } from "./pages/AdminPanel";
 
 import "./App.css";
 

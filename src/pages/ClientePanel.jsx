@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useAuth } from "../../context/useAuth";
+import { useAuth } from "../context/useAuth";
 import {
   obtenerPedidos,
   crearPedido,
   eliminarPedido,
-} from "../../services/pedidosService";
-import { obtenerJoyas, guardarJoyas } from "../../services/joyasService";
-import { AlertModal } from "../AlertModal";
-import tarifasTaller from "../../data/tarifasTaller.json";
+} from "../services/pedidosService";
+import { obtenerJoyas, guardarJoyas } from "../services/joyasService";
+import { AlertModal } from "../components/AlertModal";
+import tarifasTaller from "../data/tarifasTaller.json";
 import "./ClientePanel.css";
 
 export function ClientePanel() {

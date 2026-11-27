@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/useAuth";
-import { obtenerJoyas, guardarJoyas } from "../../services/joyasService";
-import { crearPedido } from "../../services/pedidosService";
-import { JoyaCard } from "../JoyaCard";
-import { AlertModal } from "../AlertModal";
+import { useAuth } from "../context/useAuth";
+import { obtenerJoyas, guardarJoyas } from "../services/joyasService";
+import { crearPedido } from "../services/pedidosService";
+import { JoyaCard } from "../components/JoyaCard";
+import { AlertModal } from "../components/AlertModal";
 import "./Home.css";
 
 export function Home() {
